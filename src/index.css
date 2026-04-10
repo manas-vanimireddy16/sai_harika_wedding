@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 20 20% 20%;
+
+    --card: 40 40% 97%;
+    --card-foreground: 20 20% 20%;
+
+    --popover: 40 40% 97%;
+    --popover-foreground: 20 20% 20%;
+
+    --primary: 43 50% 62%;
+    --primary-foreground: 20 20% 15%;
+
+    --secondary: 140 20% 75%;
+    --secondary-foreground: 140 30% 20%;
+
+    --muted: 40 25% 92%;
+    --muted-foreground: 20 10% 50%;
+
+    --accent: 350 30% 55%;
+    --accent-foreground: 40 40% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 43 50% 62%;
+
+    --radius: 1rem;
+
+    /* Custom wedding tokens */
+    --gold: 43 50% 62%;
+    --gold-light: 43 60% 80%;
+    --gold-dark: 43 40% 45%;
+    --ivory: 40 40% 97%;
+    --cream: 40 33% 96%;
+    --sage: 140 20% 75%;
+    --sage-dark: 140 25% 40%;
+    --maroon: 350 30% 55%;
+    --maroon-light: 350 35% 75%;
+    --warm-text: 20 20% 20%;
+
+    --gradient-gold: linear-gradient(135deg, hsl(43 60% 80%), hsl(43 50% 62%));
+    --gradient-sage: linear-gradient(135deg, hsl(140 25% 85%), hsl(140 20% 75%));
+    --gradient-hero: linear-gradient(180deg, hsl(40 40% 97%) 0%, hsl(40 33% 94%) 50%, hsl(43 60% 90%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(40 40% 98%), hsl(40 35% 95%));
+
+    --shadow-soft: 0 4px 20px hsl(43 50% 62% / 0.12);
+    --shadow-card: 0 8px 30px hsl(20 20% 20% / 0.06);
+    --shadow-elevated: 0 12px 40px hsl(20 20% 20% / 0.1);
+
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .wedding-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply rounded-2xl border border-border p-5;
+  }
+
+  .wedding-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .wedding-btn-gold {
+    background: var(--gradient-gold);
+    @apply text-foreground;
+  }
+
+  .wedding-btn-sage {
+    background: var(--gradient-sage);
+    @apply text-foreground;
+  }
+
+  .wedding-btn-outline {
+    @apply border border-border bg-card text-foreground;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    @apply text-xl font-semibold text-foreground;
+    color: hsl(var(--maroon));
+  }
+
+  .ornament {
+    @apply text-center;
+    color: hsl(var(--gold));
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Mobile wrapper */
+.mobile-wrapper {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--gradient-hero);
+}
